@@ -88,13 +88,13 @@ public abstract class Team3SortCompetition extends SortCompetition{
 		
 		return getmedian(medval);
 	}
-	public static void swap(int[]arr,int i,int j)
+	public void swap(int[]arr,int i,int j)
 	{
 		int x = arr[i];
 		arr[i] = arr[j];
 		arr[j] = x;
 	}
-	public static int getmedian(int[] arr)
+	public int getmedian(int[] arr)
 	{
 		int median = 0;
 		if (arr.length % 2 == 1)
@@ -107,7 +107,7 @@ public abstract class Team3SortCompetition extends SortCompetition{
 		}
 		return median;
 	}
-	public static String[] merge(String[] list1, String[] list2)
+	public String[] merge(String[] list1, String[] list2)
 	{
 		int newlist = 0;
 		int newlist2 = 0;
@@ -139,7 +139,7 @@ public abstract class Team3SortCompetition extends SortCompetition{
 		}
 		return newarray;
 	}
-	public static String[] mergeSort(String[] list)
+	public String[] mergeSort(String[] list)
 	{
 		if (list.length <= 1) 
 		{
@@ -153,7 +153,7 @@ public abstract class Team3SortCompetition extends SortCompetition{
 			return merge(mergeSort(temp1),mergeSort(temp2));
 		}
 	}
-	public static int binarySearch(String[] arr, String query) {
+	public int binarySearch(String[] arr, String query) {
 	    int low = 0;
 	    int high = arr.length - 1;
 	    int mid;
@@ -172,7 +172,7 @@ public abstract class Team3SortCompetition extends SortCompetition{
 
 	    return -1;
 	}
-	public static void printArraystring(String[] arr)
+	public void printArraystring(String[] arr)
 	{
 		for(int i=0;i<arr.length-1;i++)
 		{
@@ -180,13 +180,13 @@ public abstract class Team3SortCompetition extends SortCompetition{
 		}
 		System.out.print(arr[arr.length-1]);
 	}
-	public static void swapstring(String[]arr,int i,int j)
+	public void swapstring(String[]arr,int i,int j)
 	{
 		String x = arr[i];
 		arr[i] = arr[j];
 		arr[j] = x;
 	}
-	public static String[] generateRandomWords(int numberOfWords)
+	public String[] generateRandomWords(int numberOfWords)
 	{
 	    String[] randomStrings = new String[numberOfWords];
 	    Random random = new Random();
