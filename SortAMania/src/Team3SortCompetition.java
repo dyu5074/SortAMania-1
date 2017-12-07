@@ -79,13 +79,20 @@ public abstract class Team3SortCompetition extends SortCompetition{
 	public int challengeFour(int[][] arr)
 	{
 		int[] medval= new int[arr.length];
-		int i=0;
 		for(int j=0; j<arr.length;j++)
 		{
-			medval[i]=challengeOne(arr[j]);
-			i++;
+			medval[j]=challengeThree(arr[j]);
 		}
-		
+		for(int i=0;i<medval.length;i++)
+		{
+			for (int j = i; j > 0; j--)	
+			{
+				if(medval[j] < medval[j-1])
+				{
+					swap(medval,j,j-1);
+				}
+			}
+		}
 		return getmedian(medval);
 	}
 	public void swap(int[]arr,int i,int j)
