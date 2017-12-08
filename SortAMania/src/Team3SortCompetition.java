@@ -1,45 +1,58 @@
 import java.util.Arrays;
 import java.util.Random;
-public abstract class Team3SortCompetition extends SortCompetition{
+/*
+ * Authors : Derek Yu and Yiren Mai
+ * Period 6-7
+ * Sortamania Competition for Team 3
+ */
+public class Team3SortCompetition extends SortCompetition{
 	public static void main (String[] args)
 	{
-		/*int [] newarray = {14,6,9,2,8,9,11,5,24,10};
-		int [] inputTenThousand = new int[10000];              
+		Team3SortCompetition test = new Team3SortCompetition();
+		System.out.println(test.greeting());
+		int [] newarray = {14,6,9,2,8,9,11,5,24,10};
+		int [] inputTenThousand = new int[10000];      
+		String[] x1= {"food","zebra","batman","superman","flash"};
 	    for (int a = 0; a < inputTenThousand.length; a++) {
 	       inputTenThousand [a] = (int) (Math.random () * 10000);
 	    }
 		long startTime = System.nanoTime();
-		System.out.print(challengeOne(newarray));
+		System.out.print(test.challengeOne(newarray));
 		long endTime = System.nanoTime();
 		long totalTime = endTime - startTime;
 		System.out.println("Time Taken in nanoseconds: " + totalTime);
 		
 		String [] TenThousandStrings = new String [10000];
-		TenThousandStrings = generateRandomWords(10000);
+		TenThousandStrings = test.generateRandomWords(10000);
 		String query = "axbwc";
 		long startTime1 = System.nanoTime();
-		System.out.print(challengeTwo(TenThousandStrings, query));
+		System.out.print(test.challengeTwo(TenThousandStrings, query));
 		long endTime1 = System.nanoTime();
 		long totalTime1 = endTime1 - startTime1;
 		System.out.println("Time Taken in nanoseconds: " + totalTime1);
 		
-		int[][] arr1 = new int[10000][10000];
+		int[][] arr1 = new int[1000][1000];
 
-	    for (int x = 0; x < 10000; x++) {
-	        for (int y = 0; y < 10000; y++) {
-	            arr1[x][y] = (int) (Math.random () * 1000);;
+	    for (int x = 0; x < 1000; x++) {
+	        for (int y = 0; y < 1000; y++) {
+	            arr1[x][y] = (int) (Math.random () * 10000);;
 	        }   
 	    } 
 	    
 		long startTime3 = System.nanoTime();
-		System.out.print(challengeFour(arr1));
+		System.out.print(test.challengeFour(arr1));
 		long endTime3 = System.nanoTime();
 		long totalTime3 = endTime3 - startTime3;
 		System.out.println("Time Taken in nanoseconds: " + totalTime3);
-		*/
+		
+		long startTime4 = System.nanoTime();
+		System.out.print(test.challengeFive(x1,"zebra"));
+		long endTime4 = System.nanoTime();
+		long totalTime4 = endTime4 - startTime4;
+		System.out.println("Time Taken in nanoseconds: " + totalTime4);
 		//test cases
 	}
-	public int challengeOne(int[] arr)
+	public int challengeOne(int[] arr)	
 	{
 		int median = 0;
 		for(int i=0;i<arr.length;i++)
@@ -51,15 +64,17 @@ public abstract class Team3SortCompetition extends SortCompetition{
 					swap(arr,j,j-1);
 				}
 			}
-		}
+		} 
 		median = getmedian(arr);
 		return median;
 	}
-	public int challengeTwo(String[] arr, String query)
+	//insertion sort
+	public int challengeTwo(String[] arr, String query) 
 	{
 		arr = mergeSort(arr);
 		return binarySearch(arr, query);
 	}
+	//merge sort and binary search
 	public int challengeThree(int[] arr)
 	{
 		int median = 0;
@@ -76,6 +91,7 @@ public abstract class Team3SortCompetition extends SortCompetition{
 		median = getmedian(arr);
 		return median;
 	}
+	//insertion sort
 	public int challengeFour(int[][] arr)
 	{
 		int[] medval= new int[arr.length];
@@ -96,19 +112,20 @@ public abstract class Team3SortCompetition extends SortCompetition{
 		}
 		return getmedian(medval);
 	}
+	//insertion sort
 	public int challengeFive(Comparable[] arr, Comparable query)
 	{
 		mergeSort(arr);
 		for(int i=0;i<arr.length;i++)
 		{
-			if(arr[i]==query)
+			if(arr[i].compareTo(query) == 0)
 			{
 				return i;
 			}
 		}
 		return -1;
 	}
-	
+	//merge sort
 	public Comparable[] mergecomparable(Comparable[] list1, Comparable[] list2)
 	{
 		int newlist = 0;
@@ -271,6 +288,6 @@ public abstract class Team3SortCompetition extends SortCompetition{
 	}
 	public String greeting()
 	{
-		return "Hello there, we will destroy everyone in this challenge";
+		return "Hello there, Team 3 will destroy everyone in this challenge";
 	}
 }
