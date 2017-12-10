@@ -71,8 +71,12 @@ public class Team3SortCompetition extends SortCompetition{
 	//insertion sort
 	public int challengeTwo(String[] arr, String query) 
 	{
-		arr = mergeSort(arr);
-		return binarySearch(arr, query);
+		String [] arr2 = mergeSort(arr);
+		for(int i = 0; i < arr2.length;i++)
+		{
+			arr[i] = arr2[i];
+		}
+		return binarySearch(arr2, query);
 	}
 	//merge sort and binary search
 	public int challengeThree(int[] arr)
@@ -138,29 +142,32 @@ public class Team3SortCompetition extends SortCompetition{
 			{
 				newarray[newlist3] = list2[newlist2];
 				newlist2++;
+				newlist3++;
 			}
 			else if (newlist2 == list2.length)
 			{
 				newarray[newlist3] = list1[newlist];
 				newlist++;
+				newlist3++;
 			}
 			else if (list1[newlist].compareTo(list2[newlist2]) < 0)
 			{
 				newarray[newlist3] = list1[newlist];
 				newlist++;
+				newlist3++;
 			}
 			else 
 			{
 				newarray[newlist3] = list2[newlist2];
 				newlist2++;
+				newlist3++;
 			}
-			newlist3++;
 		}
 		return newarray;
 	}
 	public Comparable[] mergeSort(Comparable[] list)
 	{
-		if (list.length <= 1) 
+		if (list.length == 1) 
 		{
 			return list;
 		}
@@ -204,29 +211,32 @@ public class Team3SortCompetition extends SortCompetition{
 			{
 				newarray[newlist3] = list2[newlist2];
 				newlist2++;
+				newlist3++;
 			}
 			else if (newlist2 == list2.length)
 			{
 				newarray[newlist3] = list1[newlist];
 				newlist++;
+				newlist3++;
 			}
 			else if (list1[newlist].compareTo(list2[newlist2]) < 0)
 			{
 				newarray[newlist3] = list1[newlist];
 				newlist++;
+				newlist3++;
 			}
 			else 
 			{
 				newarray[newlist3] = list2[newlist2];
 				newlist2++;
+				newlist3++;
 			}
-			newlist3++;
 		}
 		return newarray;
 	}
 	public String[] mergeSort(String[] list)
 	{
-		if (list.length <= 1) 
+		if (list.length == 1) 
 		{
 			return list;
 		}
