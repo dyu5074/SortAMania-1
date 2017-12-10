@@ -119,67 +119,17 @@ public class Team3SortCompetition extends SortCompetition{
 	//insertion sort
 	public int challengeFive(Comparable[] arr, Comparable query)
 	{
-		mergeSort(arr);
+		bubbleSort(arr);
 		for(int i=0;i<arr.length;i++)
 		{
-			if(arr[i].compareTo(query) == 0)
+			if(arr[i].compareTo(query)==0)
 			{
 				return i;
 			}
 		}
 		return -1;
 	}
-	//merge sort
-	public Comparable[] mergecomparable(Comparable[] list1, Comparable[] list2)
-	{
-		int newlist = 0;
-		int newlist2 = 0;
-		int newlist3 = 0;
-		Comparable[] newarray = new Comparable[list1.length + list2.length];
-		while(newlist < list1.length || newlist2 < list2.length)
-		{
-			if (newlist == list1.length)
-			{
-				newarray[newlist3] = list2[newlist2];
-				newlist2++;
-				newlist3++;
-			}
-			else if (newlist2 == list2.length)
-			{
-				newarray[newlist3] = list1[newlist];
-				newlist++;
-				newlist3++;
-			}
-			else if (list1[newlist].compareTo(list2[newlist2]) < 0)
-			{
-				newarray[newlist3] = list1[newlist];
-				newlist++;
-				newlist3++;
-			}
-			else 
-			{
-				newarray[newlist3] = list2[newlist2];
-				newlist2++;
-				newlist3++;
-			}
-		}
-		return newarray;
-	}
-	public Comparable[] mergeSort(Comparable[] list)
-	{
-		if (list.length == 1) 
-		{
-			return list;
-		}
-		else
-		{
-			int x=list.length/2;
-			Comparable[] temp1 = Arrays.copyOfRange(list,0,x);
-			Comparable[] temp2 = Arrays.copyOfRange(list,x,list.length);
-			return mergecomparable(mergeSort(temp1),mergeSort(temp2));
-		}
-	}
-
+	//bubble sort	
 	public void swap(int[]arr,int i,int j)
 	{
 		int x = arr[i];
@@ -266,6 +216,30 @@ public class Team3SortCompetition extends SortCompetition{
 	    }
 
 	    return -1;
+	}
+	public void bubbleSort(Comparable[] list1)
+	{
+		boolean swap = false;
+		while(!swap)
+		{
+			int numSwaps = 0;
+			for(int i = 0; i < list1.length-1; i++)
+			{
+				Comparable value;
+				if(list1[i].compareTo(list1[i+1]) > 0)
+				{
+					value = list1[i+1];
+					list1[i+1] = list1[i];
+					list1[i] = value;
+					numSwaps++;
+				}		
+			}
+			if(numSwaps == 0) 
+			{
+				swap = true;
+			}
+			
+		}
 	}
 	public void printArraystring(String[] arr)
 	{
